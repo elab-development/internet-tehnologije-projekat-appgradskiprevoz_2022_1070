@@ -20,4 +20,9 @@ class LineFactory extends Factory
             //
         ];
     }
+
+/*     public function lines()
+    {
+         obrisao sam odavde i iskoristio samo LineSeeder.php
+    } */
 }

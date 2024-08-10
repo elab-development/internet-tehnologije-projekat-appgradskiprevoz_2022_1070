@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('lines', function (Blueprint $table) {
             $table->id();
-            $table->integer('number');
+            $table->string('number');
+            $table->string('vehicle');
             $table->string('start_location');
             $table->string('end_location');
-            $table->integer('duration');
+            $table->string('duration');  //string zbog minuta
+            $table->string('price');   //string zbog rsd
             $table->timestamps();
         });
     }
