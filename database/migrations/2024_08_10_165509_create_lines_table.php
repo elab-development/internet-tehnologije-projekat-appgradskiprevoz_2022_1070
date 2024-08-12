@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('lines', function (Blueprint $table) {
             $table->id();
-            $table->string('number');   //string zbog npr EKO2
+            $table->string('number')->unique();   //string zbog npr EKO2  i unique zato sto mi je bitno za kasnije (npr za kupovinu karte posto radi preko numbera)
             $table->string('vehicle');
             $table->string('start_location');
             $table->string('end_location');

@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->integer('line_number');
-            $table->double('price');
+            $table->string('line_number');
+            $table->string('price');  //za sada string
             $table->timestamp('date_of_purchase');
             $table->timestamp('valid_until')->nullable();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->nullable();   //nullable da mi ne baca error kada proveravam za karte, a pre nego sto sam uradio auth za usera
             $table->foreignId('lines_id');
             $table->timestamps();
         });
