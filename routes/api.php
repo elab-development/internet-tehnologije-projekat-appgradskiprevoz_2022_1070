@@ -15,10 +15,12 @@ Route::get('/lines',[LineController::class,'index']);
 
 Route::get('/lines/{number}',[LineController::class,'show']);
 
-Route::post('/lines/{number}/buy',[TicketController::class,'buy']);
-
 Route::post('/register',[AuthController::class,'register']);
 
 Route::post('/login',[AuthController::class,'login']);
 
 Route::post('/logout',[AuthController::class,'logout'])->middleware('auth:sanctum');
+
+Route::middleware(['auth:sanctum', 'role:user'])->group(function (){
+    Route::post('/lines/{number}/buy',[TicketController::class,'buy']);
+});

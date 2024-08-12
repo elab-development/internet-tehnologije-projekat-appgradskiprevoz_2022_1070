@@ -35,6 +35,8 @@ class AuthController extends Controller
             ]);
         }
 
+        $user->assignRole('user');
+
         $token=$user->createToken('auth_token')->plainTextToken;
 
 
@@ -76,7 +78,7 @@ public function login(Request $request)
 
     public function logout(Request $request)
     {
-
+        
         auth()->user()->tokens()->delete();
 
         return response()->json(['Log out successful']);
