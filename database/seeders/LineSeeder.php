@@ -36,7 +36,7 @@ class LineSeeder extends Seeder
             ['number' => '19', 'vehicle' => 'Trolejbus', 'start_location' => 'Trg Slavija', 'end_location' => 'Konjarnik', 'duration' => '33 min', 'price' => '50 RSD','number_of_stops'=>'12'],
             ['number' => '41', 'vehicle' => 'Trolejbus', 'start_location' => 'Studentski trg', 'end_location' => 'Banjica 2', 'duration' => '37 min', 'price' => '50 RSD','number_of_stops'=>'18'],
             ['number' => 'EKO2', 'vehicle' => 'Elektro-bus', 'start_location' => 'Dorćol/SRC Milan Gale Muškatirović', 'end_location' => 'Beograd na vodi', 'duration' => '35 min', 'price' => '50 RSD','number_of_stops'=>'14'],
-            ['number' => 'BG VOZ 1', 'vehicle' => 'Voz', 'start_location' => 'Batajnica', 'end_location' => 'Ovča', 'duration' => '45 min', 'price' => '50 RSD','number_of_stops'=>'15'],
+            ['number' => 'BGVOZ1', 'vehicle' => 'Voz', 'start_location' => 'Batajnica', 'end_location' => 'Ovča', 'duration' => '45 min', 'price' => '50 RSD','number_of_stops'=>'15'],
        
         ];
 

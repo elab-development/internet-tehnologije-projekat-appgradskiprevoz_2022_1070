@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\TicketDetailsResource;
+use App\Http\Resources\TicketResource;
 use App\Models\Line;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TicketController extends Controller
 {
@@ -13,7 +16,11 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //
+        $user=Auth::user();
+        $tickets=$user->tickets;
+        return response()->json(['tickets'=>TicketResource::collection($tickets)]);
+
+       // return TicketResource::collection($tickets);
     }
 
     /**
@@ -73,12 +80,16 @@ class TicketController extends Controller
             return response()->json('Line not found',404);
         }
 
+        $user=Auth::user();     //trenutno ulogovani user
+
         $ticket=Ticket::create([
             'line_number'=>$line->number,
             'price'=>$line->price,
             'date_of_purchase'=>now(),
             'expiration_date'=>now()->addDays(1),
-            'lines_id'=>$line->id
+            'lines_id'=>$line->id,
+            'user_id'=>$user->id
+
 
         ]);
 

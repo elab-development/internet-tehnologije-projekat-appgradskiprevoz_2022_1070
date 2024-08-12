@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('price');  //za sada string
             $table->timestamp('date_of_purchase');
             $table->timestamp('valid_until')->nullable();
-            $table->foreignId('user_id')->nullable();   //nullable da mi ne baca error kada proveravam za karte, a pre nego sto sam uradio auth za usera
+            $table->foreignId('user_id');
             $table->foreignId('lines_id');
             $table->timestamps();
         });
