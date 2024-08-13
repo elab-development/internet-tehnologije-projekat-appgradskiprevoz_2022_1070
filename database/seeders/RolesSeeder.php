@@ -21,7 +21,7 @@ class RolesSeeder extends Seeder
         $updatePermission=Permission::create(['name'=>'update_lines']);
         $buyPermission=Permission::create(['name'=>'buy_ticket']);
         $showPermission=Permission::create(['name'=>'show_tickets']);
-
+        
         $adminRole->givePermissionTo($deletePermission,$updatePermission,$buyPermission,$showPermission);
         $userRole->givePermissionTo($buyPermission,$showPermission);
         
