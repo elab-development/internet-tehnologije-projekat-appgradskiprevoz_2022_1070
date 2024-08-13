@@ -24,6 +24,13 @@ class DatabaseSeeder extends Seeder
             'password'=>Hash::make('admin')
         ]);
 
+        $moderator=User::create([
+            'name'=>'moderator',
+            'email'=>'moderator@moderator',
+            'password'=>Hash::make('moderator')
+        ]);
+
+        $moderator->assignRole('moderator');
 
         $admin->assignRole('admin');
 
