@@ -21,7 +21,8 @@ class TicketResource extends JsonResource
             'Line: '=>$this->line_number,
             'Price: '=>$this->price,
             'Purchased: '=>$this->date_of_purchase,
-            'Valid until: '=>$this->expiration_date
+            'Valid until: '=>$this->expiration_date,
+            'id: '=>$this->id
         ];
     }
 }

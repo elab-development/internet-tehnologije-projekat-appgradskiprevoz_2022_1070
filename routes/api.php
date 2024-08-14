@@ -31,19 +31,16 @@ Route::middleware(['auth:sanctum', 'role:user'])->group(function (){
 });
 
 Route::middleware(['auth:sanctum','role:admin'])->group(function (){
-    Route::resource('/users', UserController::class)->only(['index']);
-    Route::delete('/delete/{number}',[LineController::class,'destroy']);    
+    Route::delete('/deleteline/{number}',[LineController::class,'destroy']);    
     Route::put('/updateline',[LineController::class,'update']);
     Route::post('/line/add',[LineController::class,'store']);
     Route::post('user/add',[UserController::class,'store']);
     
 });
 
-Route::middleware(['auth:sanctum','role:moderator'])->group(function (){
-    Route::put('/updateuser',[UserController::class,'update']);
-    Route::delete('/deleteticket/{id}',[TicketController::class,'destroy']);
-});
-
 Route::middleware(['auth:sanctum','role:moderator|admin'])->group(function (){
     Route::delete('/deleteuser',[UserController::class,'destroy']);
+    Route::delete('/deleteticket/{id}',[TicketController::class,'destroy']);
+    Route::put('/updateuser',[UserController::class,'update']);
+    Route::resource('/users', UserController::class)->only(['index']);
 });

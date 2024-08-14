@@ -91,7 +91,7 @@ class UserController extends Controller
     {
         $validator=Validator::make($request->all(),[
             'name'=>'nullable|string|max:100',
-            'email'=>'required|email|exists:users',
+            'email'=>'required|email|exists:users',     //pronalazi user-a na osnovu email-a
             'phone_number'=>'nullable|string|max:100',
             'address'=>'nullable|string|max:150',
             'new_email'=>'nullable|email|unique:users,email'        //ovde dodato ,email da bi bi gledao kolonu email a ne new_email
@@ -107,8 +107,18 @@ class UserController extends Controller
             return response()->json(['This user does not exist in the database'],404);
         }
 
-        if($user->hasAnyRole(['admin','moderator'])){
-            return response()->json(['This user cannot be updated.'], 403);
+        $authUser=Auth::user();
+
+        if($authUser->hasRole('moderator')){
+
+            if($user->hasAnyRole(['admin','moderator'])){
+                return response()->json(['This user cannot be updated.'], 403);
+            }
+        }elseif($authUser->hasRole('admin')){
+
+            if($user->hasRole('admin')){
+                return response()->json(['This user cannot be updated.'], 403);
+            }
         }
 
         $user->update($request->only(['name','phone_number','address']));
