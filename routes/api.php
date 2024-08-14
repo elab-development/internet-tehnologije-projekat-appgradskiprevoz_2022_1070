@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\LineController;
+use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
 use App\Http\Resources\TicketResource;
@@ -44,3 +47,7 @@ Route::middleware(['auth:sanctum','role:moderator|admin'])->group(function (){
     Route::put('/updateuser',[UserController::class,'update']);
     Route::resource('/users', UserController::class)->only(['index']);
 });
+
+Route::post('forgotpassword',[PasswordController::class, 'sendLink']);
+Route::post('resetpassword',[PasswordController::class, 'reset'])->name('password.reset');
+
