@@ -4,15 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Line;
 use Illuminate\Http\Request;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class LineController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $lines=Line::select('number','start_location','end_location')->get();
+
+        $perPage=$request->input('per_page', 25);
+
+        $lines=QueryBuilder::for(Line::class)
+        ->allowedFilters(['number','start_location','end_location','vehicle','price'])
+        ->select(['number','start_location','end_location'])
+        ->paginate($perPage);
+
         return response()->json($lines);
     }
 
