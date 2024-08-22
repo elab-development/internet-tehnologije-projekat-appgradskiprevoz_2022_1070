@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function RegisterPage({setAuthToken}) {
 
@@ -72,6 +73,8 @@ function RegisterPage({setAuthToken}) {
           </div>
           <button type='submit' className='button'>Register</button>
         </form>
+        <div className='login-link'>Already have an account? <Link to='/login'>Login here</Link>
+        </div>
       </div>
     </div>
   )

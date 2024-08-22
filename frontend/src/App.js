@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import RegisterPage from './components/RegisterPage';
 import { useState } from 'react';
+import LoginPage from './components/LoginPage';
 
 
 
@@ -17,6 +18,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/register' element={<RegisterPage setAuthToken={setAuthToken} />} />
+        <Route path='/login' element={<LoginPage setAuthToken={setAuthToken} />} />
       </Routes>
     </BrowserRouter>
   );
