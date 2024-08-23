@@ -20,7 +20,7 @@ class PasswordController extends Controller
         if($status===Password::RESET_LINK_SENT){
             return response()->json(['Password reset link was sent successfully.'],200);
         }else{
-            return response()->json(['Password reset link was not sent, please enter the correct email address.'],400);
+            return response()->json(['Password reset link was not sent, try again later.'],400);
         }
     }
 

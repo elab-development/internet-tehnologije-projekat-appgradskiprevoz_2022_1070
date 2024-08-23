@@ -52,6 +52,21 @@ function LoginPage({setAuthToken}) {
       }
 
 
+      function handleForgotPassword(e){
+        axios.post('/api/forgotpassword', userData).then((response)=>{
+          console.log(response.data);
+          alert(response.data[0]);
+      }).catch((e)=>{
+        console.log(e);
+        if(e.response.status===400){
+        alert(e.response.data[0]);
+        }else{
+          alert(e.response.data.message);
+        }
+      });
+      }
+      
+
 
 
   return (
@@ -68,7 +83,10 @@ function LoginPage({setAuthToken}) {
             {errors ? <span className='error-message'>{errors.email}</span> : <></>}
           </div>
           <div className='form-group'>
-            <label htmlFor='password'>Password</label>
+            <div className='password-div'>
+              <label htmlFor='password'>Password</label>
+              <span className='forgot-password' onClick={handleForgotPassword}>Forgot password?</span>
+            </div>
             <input type='password' id='password' name='password' className='form-control' onInput={handleInput} required />
             {errors ? <span className='error-message'>{errors.password}</span> : <></>}
             {passwordError ? <span className='error-message'>{passwordError}</span> : <></>}

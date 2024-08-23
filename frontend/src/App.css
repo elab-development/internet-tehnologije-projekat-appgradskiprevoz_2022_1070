@@ -174,3 +174,20 @@ body {
 .register-link a:hover {
   color:#98afc7
 }
+
+
+.password-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.forgot-password {
+  font-size: 17px;
+  color: #e8f0f8;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #da6d5a;
+}
