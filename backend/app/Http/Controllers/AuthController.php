@@ -31,7 +31,8 @@ class AuthController extends Controller
                 'email'=>$request->email,
                 'password'=>Hash::make($request->password),
                 'phone_number'=>$request->phone_number,
-                'address'=>$request->address
+                'address'=>$request->address,
+                'role'=>'user'
             ]);
         }
 
@@ -39,7 +40,7 @@ class AuthController extends Controller
 
         $token=$user->createToken('auth_token')->plainTextToken;
 
-        return response()->json(['Account successfully created, welcome ' . $user->name .'!' ,'access_token'=>$token]);
+        return response()->json(['Account successfully created, welcome ' . $user->name .'!' ,'access_token'=>$token , 'role'=>$user->role]);
 
 }
 
@@ -70,7 +71,7 @@ public function login(Request $request)
        
         $token=$user->createToken('auth_token')->plainTextToken;
 
-        return response()->json(['Welcome, ' . $user->name . '!', 'access_token'=>$token]);
+        return response()->json(['Welcome, ' . $user->name . '!', 'access_token'=>$token , 'role'=>$user->role]);
 
     } 
 

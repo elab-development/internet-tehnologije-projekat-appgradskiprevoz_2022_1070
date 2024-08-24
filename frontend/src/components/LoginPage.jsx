@@ -2,8 +2,9 @@ import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function LoginPage({setAuthToken}) {
+function LoginPage({setAuthToken, setUserRole}) {
 
     const[errors, setErrors]=useState();
 
@@ -13,8 +14,12 @@ function LoginPage({setAuthToken}) {
 
     const[userData, setUserData]=useState({
         email:'',
-        password:''
+        password:'',
+        role:''
       })
+
+
+    const navigate=useNavigate();
 
     function handleInput(e){
         setUserData({
@@ -31,8 +36,10 @@ function LoginPage({setAuthToken}) {
             setPasswordError();
             setErrors({});
             setLoggedIn();
-            window.sessionStorage.setItem('auth_token', response.data.access_token);     //ovde dodaj navigate
+            window.sessionStorage.setItem('auth_token', response.data.access_token); 
             setAuthToken(response.data.access_token);
+            setUserRole(response.data.role);
+            navigate('/lines');
           }else{
             setPasswordError();
             setLoggedIn();

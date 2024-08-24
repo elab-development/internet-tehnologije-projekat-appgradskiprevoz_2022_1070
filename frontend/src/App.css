@@ -45,6 +45,8 @@ body {
   background-color: #ffffff;
 }
 
+/* ZA RegisterPage */
+
 .register-page {
   display: flex;
   align-items: center;
@@ -121,6 +123,8 @@ body {
   transform: scale(1.05);
 }
 
+/* ZA LoginPage */
+
 .login-form-container {
   background: linear-gradient(to left, #003366, #b63535);
   color: #ffffff;
@@ -190,4 +194,118 @@ body {
 
 .forgot-password:hover {
   color: #da6d5a;
+}
+
+
+/* ZA NavBar */
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 70px;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: linear-gradient(to left, rgb(22, 22, 146), rgb(170, 24, 24));
+  color: white;
+  height: 77px;
+  width: 80%;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 3px;
+}
+
+.nav-left-container {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+}
+
+.nav-title {
+  margin: 0;
+  margin-right: 40px;
+
+}
+
+.nav-item {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #ffffff;
+  background-color: #000000;
+  border-color: #ffffff;
+  text-decoration: none;
+  transform: scale(1.1);
+}
+
+.nav-right-container {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+  position: relative;
+}
+
+.nav-user-icon {
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0.5, 0, 0, 0.5);
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+  display: block;
+}
+
+.nav-dropdown-item {
+  display: block;
+  padding: 7px 15px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav-dropdown-item:hover {
+  background-color: #a33b3b;
+  text-decoration: none;
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.nav-dropdown-disabled{
+  display: block;
+  padding: 7px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #666666;
+  cursor:not-allowed;
+  pointer-events: none;
 }

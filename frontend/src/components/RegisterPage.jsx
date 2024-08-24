@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-function RegisterPage({setAuthToken}) {
+function RegisterPage({setAuthToken, setUserRole}) {
 
   const[errors, setErrors]=useState();
 
@@ -11,9 +11,11 @@ function RegisterPage({setAuthToken}) {
     email:'',
     password:'',
     address:'',
-    phone_number:''
+    phone_number:'',
+    role:''
   })
 
+  const navigate=useNavigate();
 
   function handleInput(e){
     setUserData({
@@ -28,8 +30,10 @@ function RegisterPage({setAuthToken}) {
      console.log(response.data);
       if(response.data.access_token!=null){
         setErrors({});
-        window.sessionStorage.setItem('auth_token', response.data.access_token);     //ovde dodaj navigate
+        window.sessionStorage.setItem('auth_token', response.data.access_token);
         setAuthToken(response.data.access_token);
+        setUserRole(response.data.role);
+        navigate('/lines');
       }else{
         setErrors(response.data[0]);  //posto je onaj response iz laravela ustv. niz, moram preko indeksa
       }                 
