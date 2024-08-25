@@ -6,7 +6,7 @@ import { useState } from 'react';
 import LoginPage from './components/LoginPage';
 import ResetPasswordPage from './components/ResetPasswordPage';
 import NavBar from './components/NavBar';
-
+import Lines from './components/Lines';
 
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
       </Routes>
       <NavBar authToken={authToken} setAuthToken={setAuthToken} userRole={userRole} setUserRole={setUserRole} />
       <Routes>
+        <Route path='/lines' element={<Lines />} />
       </Routes>
     </BrowserRouter>
   );
