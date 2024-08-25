@@ -364,3 +364,19 @@ body {
 .location-dest{
   font-size: x-large;
 }
+
+
+.buy-ticket-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.buy-ticket-btn:hover {
+  background-color: #218838;
+}

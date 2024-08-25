@@ -7,6 +7,7 @@ import LoginPage from './components/LoginPage';
 import ResetPasswordPage from './components/ResetPasswordPage';
 import NavBar from './components/NavBar';
 import Lines from './components/Lines';
+import { useLocation } from 'react-router-dom';
 
 
 function App() {
@@ -17,20 +18,34 @@ function App() {
   const[userRole, setUserRole]=useState();
 
 
+  const noNavBar=['/register', '/login', '/resetpassword'];
+
+  function ConditionalNavBar({ noNavBar, authToken, setAuthToken, userRole, setUserRole }) {
+    const location = useLocation();
+  
+    if (noNavBar.includes(location.pathname)) {
+      return null;
+    }
+  
+    return <NavBar authToken={authToken} setAuthToken={setAuthToken} userRole={userRole} setUserRole={setUserRole} />;
+  }
+  
+
 
   return (
     <BrowserRouter>
+      <ConditionalNavBar noNavBar={noNavBar} authToken={authToken} setAuthToken={setAuthToken} userRole={userRole} setUserRole={setUserRole} />
       <Routes>
         <Route path='/register' element={<RegisterPage setAuthToken={setAuthToken} setUserRole={setUserRole} />} />
         <Route path='/login' element={<LoginPage setAuthToken={setAuthToken} setUserRole={setUserRole} />} />
         <Route path='/resetpassword' element={<ResetPasswordPage />} />
       </Routes>
-      <NavBar authToken={authToken} setAuthToken={setAuthToken} userRole={userRole} setUserRole={setUserRole} />
       <Routes>
-        <Route path='/lines' element={<Lines />} />
+        <Route path='/lines' element={<Lines authToken={authToken} />} />
       </Routes>
     </BrowserRouter>
   );
 }
+
 
 export default App;

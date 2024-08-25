@@ -85,7 +85,7 @@ class TicketController extends Controller
 
         $line=Line::where('number',$number)->first();
         if(!$line){
-            return response()->json('Line not found',404);
+            return response()->json('Line not found.',404);
         }
 
         $user=Auth::user();     //trenutno ulogovani user
@@ -103,7 +103,7 @@ class TicketController extends Controller
 
         $ticket->save();
 
-        return response()->json(['The ticket has been bought successfully']);    
+        return response()->json(['The ticket has been bought successfully.']);    
     }
 
 

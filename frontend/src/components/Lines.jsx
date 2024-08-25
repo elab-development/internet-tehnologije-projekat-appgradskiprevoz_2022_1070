@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import OneLine from './OneLine';
 import axios from 'axios';
 
-function Lines() {
+function Lines({authToken}) {
 
 
 const[lines, setLines] = useState([]);
@@ -31,17 +31,10 @@ useEffect(()=>{
 
 
 
-
-
-
-
-
-
-
   return (
     <div className="lines-container">
     {lines.map(line => (
-      <OneLine key={line.id} line={line} />
+      <OneLine key={line.id} line={line} authToken={authToken} />
     ))}
   </div>
   )

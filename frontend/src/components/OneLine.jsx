@@ -1,8 +1,8 @@
 import React from 'react'
+import BuyTicketBtn from './BuyTicketBtn'
 
 
-
-function OneLine({line}) {
+function OneLine({line, authToken}) {
 
 
 
@@ -21,7 +21,7 @@ function OneLine({line}) {
           <p className='location-dest'>{line.end_location}</p>
         </div>
       </div>
-      {/* ovde ce da ide dugme */}
+      <BuyTicketBtn number={line.number} authToken={authToken} />
     </div>
   )
 }
