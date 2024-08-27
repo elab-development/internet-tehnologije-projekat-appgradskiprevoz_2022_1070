@@ -14,11 +14,11 @@ class LineController extends Controller
     public function index(Request $request)
     {
 
-        $perPage=$request->input('per_page', 25);
+        $perPage=$request->input('per_page', 10);
 
         $lines=QueryBuilder::for(Line::class)
         ->allowedFilters(['number','start_location','end_location','vehicle','price'])
-        ->select(['number','start_location','end_location'])
+        ->select(['number','start_location','end_location','id'])
         ->paginate($perPage);
 
         return response()->json($lines);
