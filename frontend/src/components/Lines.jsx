@@ -3,6 +3,7 @@ import OneLine from './OneLine';
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import Filters from './Filters';
+import LineShortcut from './LineShortcut';
 
 function Lines({authToken}) {
 
@@ -109,8 +110,8 @@ useEffect(() => {
         activeClassName='active'
       />
     </div>
-    <div>
-      {/* Ovde ce biti ono poslednje */}
+    <div className='shortcut-container'>
+      <LineShortcut />
     </div>
   </div>
   )

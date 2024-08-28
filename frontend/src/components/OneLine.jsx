@@ -22,6 +22,7 @@ function OneLine({line, authToken}) {
         </div>
       </div>
       <BuyTicketBtn number={line.number} authToken={authToken} />
+      <a href={'/lines/' + line.number} className='see-more-link'>See more info</a>
     </div>
   )
 }

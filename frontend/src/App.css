@@ -317,11 +317,13 @@ body {
 /* ZA LINIJE */
 
 .lines-page{
+  margin-left: 10%;
   width: 80%;
   display: flex;
-  flex: row;
+  flex-direction: row;
   align-items: baseline;
-  justify-content: center;
+  justify-content: flex-start;
+  
 }
 
 .lines-container {
@@ -339,7 +341,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 20px 0;
-  padding: 20px;
+  padding: 20px 20px 15px 20px;
   border: 6px solid #000000;
   border-radius: 15px;
   background: linear-gradient(to top left, #003366, #b63535);
@@ -486,4 +488,59 @@ body {
 
 .resetFilters:hover {
   background-color: #c82333;
+}
+
+
+.line-shortcut-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to right bottom, #b63535, #003366);
+  padding: 15px 5px;
+  border: solid;
+  border-color: #000000;
+  border-width: 5px;
+  border-radius: 5px;
+  color: #000000;
+  font-weight: 600;
+
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 100%;
+}
+
+.line-block {
+  background-color: #be8c8c;
+  border: solid;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.line-block:hover {
+  background: linear-gradient(to left, #b63535, #003366);
+  color: white;
+  transform: scale(1.05);
+}
+
+.shortcut-container{
+  width: 25%;
+}
+
+.see-more-link {
+  margin-top: 5px;
+  display: block;
+  font-size: 16px;
+  color: #cfbaba;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.see-more-link:hover {
+  color: #0056b3;
 }
