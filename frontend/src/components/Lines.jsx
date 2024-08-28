@@ -27,6 +27,7 @@ const handlePageClick = (event) =>{
 }
 
 
+
 /* useEffect(()=>{
   let config = {
       method: 'get',
@@ -80,30 +81,37 @@ useEffect(() => {
 }, [currentPage, filters]);
 
   return (
+  <div className='lines-page'>
+    <div className='filterscomponent-container'>
+      <Filters setFilters={setFilters} setCurrentPage={setCurrentPage} />
+    </div>
     <div className="lines-container">
-    <Filters setFilters={setFilters} setCurrentPage={setCurrentPage} />
-    {lines.map(line => (
-      <OneLine line={line} authToken={authToken} key={line.id} />
-    ))}
-    <ReactPaginate
-      previousLabel={'Previous'}
-      nextLabel={'Next'}
-      breakLabel={'...'}
-      pageCount={totalPages} //
-      marginPagesDisplayed={2}
-      pageRangeDisplayed={2}
-      onPageChange={handlePageClick} 
-      containerClassName='pagination'
-      pageClassName='page-item'
-      pageLinkClassName='page-link'
-      previousClassName='page-item'
-      nextClassName='page-item'
-      nextLinkClassName='page-link'
-      breakClassName='page-item'
-      breakLinkClassName='page-link'
-      previousLinkClassName='page-link'
-      activeClassName='active'
-     />
+      {lines.map(line => (
+        <OneLine line={line} authToken={authToken} key={line.id} />
+      ))}
+      <ReactPaginate
+        previousLabel={'Previous'}
+        nextLabel={'Next'}
+        breakLabel={'...'}
+        pageCount={totalPages} //
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={2}
+        onPageChange={handlePageClick} 
+        containerClassName='pagination'
+        pageClassName='page-item'
+        pageLinkClassName='page-link'
+        previousClassName='page-item'
+        nextClassName='page-item'
+        nextLinkClassName='page-link'
+        breakClassName='page-item'
+        breakLinkClassName='page-link'
+        previousLinkClassName='page-link'
+        activeClassName='active'
+      />
+    </div>
+    <div>
+      {/* Ovde ce biti ono poslednje */}
+    </div>
   </div>
   )
 }

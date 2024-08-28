@@ -21,6 +21,17 @@ const[price, setPrice]=useState('');
     });
   };
 
+  const handleResetFilters = (e) => {
+    e.preventDefault();
+    setCurrentPage(0);
+    setFilters({
+      vehicle: '',
+      start_location: '',
+      end_location: '',
+      price: '',
+    });
+  };
+
 
   return (
 <div className="filters-container">
@@ -59,7 +70,8 @@ const[price, setPrice]=useState('');
             onChange={(e) => setPrice(e.target.value)}
           />
         </div>
-        <button type="submit">Apply Filters</button>
+        <button type="submit" className='resetFilters' onClick={handleResetFilters}>Reset Filters</button>
+        <button type="submit" className='submitFilters' >Apply Filters</button>
       </form>
     </div>
   )

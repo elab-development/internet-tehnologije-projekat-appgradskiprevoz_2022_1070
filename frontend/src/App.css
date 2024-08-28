@@ -316,8 +316,16 @@ body {
 
 /* ZA LINIJE */
 
+.lines-page{
+  width: 80%;
+  display: flex;
+  flex: row;
+  align-items: baseline;
+  justify-content: center;
+}
 
 .lines-container {
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -414,4 +422,68 @@ body {
 .active .page-link{
   background-color: #003366 !important;
   color: white !important;
+}
+
+
+.filterscomponent-container{
+  width: 25%;
+}
+
+.filters-container {
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to right bottom, #003366, #b63535);
+  border: solid;
+  border-radius: 5px;
+  border-width: 5px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
+
+.filters-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: whitesmoke;
+}
+
+.filters-container select,
+.filters-container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: double;
+  border-width: 5px;
+  border-radius: 5px;
+}
+
+.submitFilters {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitFilters:hover {
+  background-color: #0056b3;
+}
+
+.resetFilters {
+  width: 45%;
+  padding: 10px;
+  background-color: #f86473;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.resetFilters:hover {
+  background-color: #c82333;
 }
