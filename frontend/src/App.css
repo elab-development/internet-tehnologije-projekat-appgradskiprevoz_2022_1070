@@ -544,3 +544,94 @@ body {
 .see-more-link:hover {
   color: #0056b3;
 }
+
+
+
+.line-details-page {
+  width: 80%;
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-top: 170px;
+}
+
+.details-title {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.details-second-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.line-info {
+  width: 77%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.line-details{
+  margin-right: 10px;
+  height: 538px;
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid;
+  border-width: 5px;
+  border-radius: 5px;
+  border-color: #000000;
+  background: linear-gradient(to left bottom, #b63535, #003366);
+  color: white;
+}
+
+
+
+.line-map {
+  flex: 1;
+  margin-right: 20px;
+  margin-left: 20px;
+  max-width: 68%;
+  border: solid;
+  border-width: 5px;
+  border-color: #000000;
+}
+
+.line-shortcut-details {
+  width: 23%;
+}
+
+.line-detail-row {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  transition: background-color 0.5s ease,transform 0.5s ease;
+  width: 70%;
+}
+
+.line-detail-row:hover {
+  transform: scale(1.1);
+  background: linear-gradient(to left bottom, #b63535a6, #0033667c);
+  border-radius: 15px;
+}
+
+
+.label-details{
+  font-size: normal;
+  font-weight: 400;
+}
+
+.value-details{
+  font-size: larger;
+}

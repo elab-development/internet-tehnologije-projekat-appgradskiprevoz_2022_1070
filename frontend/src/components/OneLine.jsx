@@ -1,5 +1,6 @@
 import React from 'react'
 import BuyTicketBtn from './BuyTicketBtn'
+import { Link } from 'react-router-dom'
 
 
 function OneLine({line, authToken}) {
@@ -22,7 +23,7 @@ function OneLine({line, authToken}) {
         </div>
       </div>
       <BuyTicketBtn number={line.number} authToken={authToken} />
-      <a href={'/lines/' + line.number} className='see-more-link'>See more info</a>
+      <Link to={'/lines/' + line.number} className='see-more-link'>See more info</Link>
     </div>
   )
 }

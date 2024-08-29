@@ -20,7 +20,7 @@ class LineSeeder extends Seeder
             ['number' => '26', 'vehicle' => 'Bus', 'start_location' => 'Dorćol/Dunavska', 'end_location' => 'Naselje Braće Jerković', 'duration' => '60 min', 'price' => '50 RSD','number_of_stops'=>'23'],
             ['number' => '31', 'vehicle' => 'Bus', 'start_location' => 'Studentski trg', 'end_location' => 'Konjarnik', 'duration' => '31 min', 'price' => '50 RSD','number_of_stops'=>'15'],
             ['number' => '33', 'vehicle' => 'Bus', 'start_location' => 'Pančevački most/Žel.St.', 'end_location' => 'Kumodraž', 'duration' => '51 min', 'price' => '50 RSD','number_of_stops'=>'29'],
-            ['number' => '45', 'vehicle' => 'Bus', 'start_location' => 'Novi Beograd/Blok 44', 'end_location' => 'Zemun/Novi Grad', 'duration' => '39 min', 'price' => '50 RSD','number_of_stops'=>'34'],
+            ['number' => '45', 'vehicle' => 'Bus', 'start_location' => 'Zemun/Novi Grad', 'end_location' => 'Novi Beograd/Blok 44', 'duration' => '39 min', 'price' => '50 RSD','number_of_stops'=>'34'],
             ['number' => '56', 'vehicle' => 'Bus', 'start_location' => 'Zeleni Venac', 'end_location' => 'Banovo brdo', 'duration' => '46 min', 'price' => '50 RSD','number_of_stops'=>'25'],
             ['number' => '65', 'vehicle' => 'Bus', 'start_location' => 'Zvezdara 2', 'end_location' => 'Novo Bežanijsko Groblje', 'duration' => '50 min', 'price' => '50 RSD','number_of_stops'=>'31'],
             ['number' => '73', 'vehicle' => 'Bus', 'start_location' => 'Novi Beograd/Blok 45', 'end_location' => 'Batajnica/Žel.St.', 'duration' => '60 min', 'price' => '50 RSD','number_of_stops'=>'43'],

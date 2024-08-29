@@ -8,6 +8,7 @@ import ResetPasswordPage from './components/ResetPasswordPage';
 import NavBar from './components/NavBar';
 import Lines from './components/Lines';
 import { useLocation } from 'react-router-dom';
+import LineDetailsPage from './components/LineDetailsPage';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
       </Routes>
       <Routes>
         <Route path='/lines' element={<Lines authToken={authToken} />} />
+        <Route path='/lines/:number' element={<LineDetailsPage authToken={authToken}/>} />
       </Routes>
     </BrowserRouter>
   );
