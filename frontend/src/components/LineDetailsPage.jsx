@@ -15,7 +15,13 @@ function LineDetailsPage({authToken}) {
 
     const[line, setLine]=useState([]);
 
-
+    const specialCoordinates={
+      'EKO2': coordinates[2],
+      'BGVOZ1': coordinates[0],
+    }
+    
+    const lineCoordinates=specialCoordinates[number] || coordinates[number];
+    
 
     useEffect(() => {
         const fetchLine = async () => {                                                     
@@ -71,7 +77,7 @@ function LineDetailsPage({authToken}) {
                 <BuyTicketBtn authToken={authToken} number={number}/>
             </div>
             <div className="line-map">
-                <Map lineCoordinates={coordinates[number]}/>
+                <Map lineCoordinates={lineCoordinates}/>
             </div>
         </div>
         <div className="line-shortcut-details">
