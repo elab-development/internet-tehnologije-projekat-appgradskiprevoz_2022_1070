@@ -19,7 +19,7 @@ const Map = ({ lineCoordinates }) => {
 
 
   return (
-    <MapContainer center={startCoordinate || [44.81393968242733, 20.456795096397403]} zoom={13} style={{ height: '400px', width: '100%' }}>
+    <MapContainer center={startCoordinate || [44.81393968242733, 20.456795096397403]} zoom={11} style={{ height: '400px', width: '100%' }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

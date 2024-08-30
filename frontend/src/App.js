@@ -9,6 +9,7 @@ import NavBar from './components/NavBar';
 import Lines from './components/Lines';
 import { useLocation } from 'react-router-dom';
 import LineDetailsPage from './components/LineDetailsPage';
+import MyTicketsPage from './components/MyTicketsPage';
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
       <Routes>
         <Route path='/lines' element={<Lines authToken={authToken} />} />
         <Route path='/lines/:number' element={<LineDetailsPage authToken={authToken}/>} />
+        <Route path='/mytickets' element={<MyTicketsPage authToken={authToken} />} />
       </Routes>
     </BrowserRouter>
   );
