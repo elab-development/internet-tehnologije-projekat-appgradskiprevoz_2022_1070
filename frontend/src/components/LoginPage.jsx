@@ -39,6 +39,7 @@ function LoginPage({setAuthToken, setUserRole}) {
             window.sessionStorage.setItem('auth_token', response.data.access_token); 
             setAuthToken(response.data.access_token);
             setUserRole(response.data.role);
+            window.sessionStorage.setItem('user_role', response.data.role);
             navigate('/lines');
           }else{
             setPasswordError();

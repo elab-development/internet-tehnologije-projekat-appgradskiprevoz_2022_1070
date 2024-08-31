@@ -2,9 +2,16 @@ import React from 'react'
 
 
 
-function OneTicket({ticket}) {
+function OneTicket({ticket, page}) {
+
+
+
+    const ticketPage = page === 'admin' ? 'ticket-admin' : 'ticket';
+
+
+
   return (
-    <div className="ticket">
+    <div className={ticketPage}>
         <div className='ticket-id'><h3>Ticket ID: {ticket['id: ']}</h3></div>
         <div className='ticket-info'>
             <div className='ticket-info-1'>

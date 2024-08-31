@@ -59,7 +59,7 @@ function MyTicketsPage({authToken}) {
       </div>
     ) : (
       tickets.map(ticket => (
-        <OneTicket key={ticket['id: ']} ticket={ticket} />
+        <OneTicket key={ticket['id: ']} ticket={ticket} page='mytickets' />
       ))
     )}
     </div>

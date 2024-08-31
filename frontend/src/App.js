@@ -10,6 +10,7 @@ import Lines from './components/Lines';
 import { useLocation } from 'react-router-dom';
 import LineDetailsPage from './components/LineDetailsPage';
 import MyTicketsPage from './components/MyTicketsPage';
+import AdminPage from './components/AdminPage';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
 
   const [authToken, setAuthToken]=useState(window.sessionStorage.getItem('auth_token'));  // stavio sam da mu je ovo pocetna vrednost,  tkd ako se refresh-uje stranica opet pokupi trenutnog korisnika
 
-  const[userRole, setUserRole]=useState();
+  const[userRole, setUserRole]=useState(window.sessionStorage.getItem('user_role'));  //da bi namestio da samo kada je user admin/moderator se prikaze admin na navbar-u
 
 
   const noNavBar=['/register', '/login', '/resetpassword'];
@@ -46,6 +47,7 @@ function App() {
         <Route path='/lines' element={<Lines authToken={authToken} />} />
         <Route path='/lines/:number' element={<LineDetailsPage authToken={authToken}/>} />
         <Route path='/mytickets' element={<MyTicketsPage authToken={authToken} />} />
+        <Route path='/admin' element={<AdminPage authToken={authToken} userRole={userRole} />} />
       </Routes>
     </BrowserRouter>
   );

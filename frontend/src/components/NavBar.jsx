@@ -27,6 +27,7 @@ function handleLogout(){
       .then((response) => {
         console.log(JSON.stringify(response.data));
         window.sessionStorage.removeItem('auth_token');
+        window.sessionStorage.removeItem('user_role');
         setAuthToken();   //postavljanje tokena i role-a na null kad se korisnik izloguje
         setUserRole();
         alert(response.data);
