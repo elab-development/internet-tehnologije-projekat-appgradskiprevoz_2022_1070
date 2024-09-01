@@ -1,7 +1,9 @@
 import React from 'react'
 import OneTicket from './OneTicket'
 
-function OneUser({user}) {
+function OneUser({user, authToken, removeDeletedTicket}) {
+
+
 
   return (
     <div className='user-card'>
@@ -14,7 +16,7 @@ function OneUser({user}) {
         <div className='user-tickets'>
           <h3>Tickets: </h3>
           {user['Tickets: '].map(ticket => (
-            <OneTicket key={ticket['id: ']} ticket={ticket} page='admin' />
+            <OneTicket key={ticket['id: ']} ticket={ticket} page='admin' authToken={authToken} removeDeletedTicket={() => removeDeletedTicket(user['id: '], ticket['id: '])} />
           ))}
         </div>
       ) : (

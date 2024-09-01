@@ -22,7 +22,7 @@ function Users({authToken}) {
     
           axios.request(config)
             .then((response) => {
-              console.log(JSON.stringify(response.data));
+              console.log(response.data);
             setUsers(response.data['users: ']);     //malo drugacije zato sto sam ovde u laravel-u koristio resource
             })
             .catch((error) => {
@@ -35,12 +35,24 @@ function Users({authToken}) {
 
 
 
+      const removeDeletedTicket = (userId, ticketId) => {
+        setUsers(users.map(user => {
+            if (user['id: '] === userId) {
+                return {
+                    ...user,
+                    ['Tickets: ']: user['Tickets: '].filter(ticket => ticket['id: '] !== ticketId),
+                };
+            }
+            return user;
+        }));
+    };
+
 
 
   return (
     <div className='user-container'>
     {users.map(user => (
-      <OneUser user={user} authToken={authToken} key={user['id: ']} />
+      <OneUser user={user} authToken={authToken} key={user['id: ']} removeDeletedTicket={removeDeletedTicket} />
     ))}
   </div>
   )
