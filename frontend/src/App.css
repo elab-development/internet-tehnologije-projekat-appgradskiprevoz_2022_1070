@@ -728,7 +728,7 @@ body {
 
 
 .users-admin-container{
-  width: 70%;
+  width: 60%;
   margin-top: 170px;
   overflow-y: auto;
   max-height: calc(100vh - 170px);
@@ -736,7 +736,16 @@ body {
 }
 
 .forms-admin-container{
-  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  margin-top: 170px;
+  overflow-y: auto;
+  max-height: calc(100vh - 170px);
+  scrollbar-width: none;
+
 }
 
 .user-container{
@@ -826,4 +835,50 @@ body {
 
 .delete-ticket-button:hover {
   background-color: #9c2114;
+}
+
+
+.user-admin-buttons{
+  padding: 3px;
+  margin-top: 10px;
+}
+
+.admin-btns{
+  border: 3px black solid;
+  border-radius: 5px;
+  color: #000000b2;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+#admin-adduser-btn {
+  background-color: #28a745;
+}
+
+#admin-adduser-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+#admin-updateuser-btn {
+  background-color: #ffc107;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#admin-updateuser-btn:hover {
+  background-color: #e0a800;
+  transform: scale(1.05);
+}
+
+#admin-deleteuser-btn {
+  background-color: #dc3545;
+}
+
+#admin-deleteuser-btn:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
 }

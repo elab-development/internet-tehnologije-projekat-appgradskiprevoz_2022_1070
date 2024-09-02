@@ -41,7 +41,36 @@ function RegisterPage({setAuthToken, setUserRole, adminPage, authToken}) {
 
   function handleAddUser(e){
     e.preventDefault();
-
+    let data = userData;
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: '/api/user/add',
+      headers: { 
+        'Accept': 'application/json', 
+        'Content-Type': 'application/json', 
+        'Authorization': 'Bearer ' + authToken
+      },
+      data : data
+    };
+    
+    axios.request(config)
+    .then((response) => {
+      console.log(response.data);
+      setErrors([]);
+      alert('User created successfully.');
+      setUserData({});
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.log(error);
+      setErrors(error.response.data[0]);
+      if(error.response.status===404){
+        alert(error.response.data);
+      }
+      console.log(data);
+    });
+    
     
   }
 
@@ -68,6 +97,7 @@ function RegisterPage({setAuthToken, setUserRole, adminPage, authToken}) {
       setErrors([]);
       alert(response.data);
       setUserData({});
+      window.location.reload();
     })
     .catch((error) => {
       console.log(error);
@@ -101,6 +131,7 @@ function RegisterPage({setAuthToken, setUserRole, adminPage, authToken}) {
       setErrors([]);
       alert(response.data);
       setUserData({});
+      window.location.reload();
     })
     .catch((error) => {
       console.log(error);
@@ -143,11 +174,13 @@ function RegisterPage({setAuthToken, setUserRole, adminPage, authToken}) {
           {adminPage==='yes' ? 
           <div className='form-group'>
             <label htmlFor='role'>Role</label>
-              <select id='role' name='role' className='form-control' onChange={handleInput} value={userData.role}>
+              <select id='role' name='role' className='form-control' onChange={handleInput} defaultValue=''>
+                  <option value='' disabled>Select a role</option>
                   <option value='user'>User</option>
                   <option value='moderator'>Moderator</option>
                   <option value='admin'>Admin</option>
               </select>
+              {errors ? <span className='error-message'>{errors.role}</span> : <></>}
           </div> : <></>}
           <div className='form-group'>
             <label htmlFor='address'>Address</label>
@@ -161,9 +194,9 @@ function RegisterPage({setAuthToken, setUserRole, adminPage, authToken}) {
           </div>
           {adminPage==='yes' ? 
           <div className='user-admin-buttons'>
-            <button onClick={handleAddUser} className='admin-adduser-btn'>Add User</button>
-            <button onClick={handleUpdateUser} className='admin-updateuser-btn'>Update User</button>
-            <button onClick={handleDeleteUser} className='admin-deleteuser-btn'>Delete User</button>
+            <button onClick={handleAddUser} className='admin-btns' id='admin-adduser-btn'>Add User</button>
+            <button onClick={handleUpdateUser} className='admin-btns' id='admin-updateuser-btn'>Update User</button>
+            <button onClick={handleDeleteUser} className='admin-btns' id='admin-deleteuser-btn'>Delete User</button>
           </div> : <button type='submit' className='button'>Register</button>}
         </form>
         {adminPage==='yes' ? <></> : <div className='login-link'>Already have an account? <Link to='/login'>Login here</Link></div>}
