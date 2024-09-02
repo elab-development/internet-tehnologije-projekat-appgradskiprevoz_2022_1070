@@ -738,7 +738,7 @@ body {
 .forms-admin-container{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: baseline;
   align-items: center;
   width: 40%;
   margin-top: 170px;
