@@ -2,6 +2,7 @@ import React from 'react'
 import Users from './Users'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react';
+import RegisterPage from './RegisterPage';
 
 
 function AdminPage({authToken, userRole}) {
@@ -23,7 +24,7 @@ function AdminPage({authToken, userRole}) {
             <Users authToken={authToken} />
         </div>
         <div className='forms-admin-container'>
-
+             <RegisterPage adminPage='yes' authToken={authToken} />
         </div>
 
     </div>
