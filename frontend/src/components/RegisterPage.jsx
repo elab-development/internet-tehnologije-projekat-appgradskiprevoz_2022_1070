@@ -65,7 +65,7 @@ function RegisterPage({setAuthToken, setUserRole, adminPage, authToken}) {
     .catch((error) => {
       console.log(error);
       setErrors(error.response.data[0]);
-      if(error.response.status===404){
+      if(error.response.status===404 || error.response.status===403){
         alert(error.response.data);
       }
       console.log(data);

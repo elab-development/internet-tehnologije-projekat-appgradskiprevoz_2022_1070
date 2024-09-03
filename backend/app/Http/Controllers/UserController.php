@@ -15,9 +15,24 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users=User::all();
+        $query=User::query();
+
+        if($request->has('search') && !empty($request->input('search'))){
+            $searchTerm=$request->input('search');
+            $query->where('name', 'LIKE', "%{$searchTerm}%")->orWhere('email', 'LIKE', "%{$searchTerm}%");
+        }
+
+
+        if($request->has('sortBy') && $request->has('sortOrder')){
+            $sortBy=$request->input('sortBy');
+            $sortOrder=$request->input('sortOrder');
+            $query->orderBy($sortBy, $sortOrder);
+        }
+
+        $users=$query->get();
+
         return response()->json(['users: '=>UserResource::collection($users)]);
     }
 
