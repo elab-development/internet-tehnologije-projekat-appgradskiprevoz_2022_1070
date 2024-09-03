@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
+import { useRef } from 'react';
 
 function LinesForm({authToken}) {
 
@@ -9,8 +10,11 @@ function LinesForm({authToken}) {
     const[errors, setErrors]=useState();
 
     const[lineData, setLineData]=useState({
-  
+    
     })
+
+
+    const formRef=useRef();
 
     function handleInput(e){
         setLineData({
@@ -41,6 +45,7 @@ function LinesForm({authToken}) {
             console.log(response.data);
             setErrors([]);
             alert(response.data);
+            formRef.current.reset();
             setLineData({});
           })
           .catch((error) => {
@@ -48,6 +53,8 @@ function LinesForm({authToken}) {
             setErrors(error.response.data.errors);
             if(error.response.status===406){
               alert(error.response.data);
+              formRef.current.reset();
+              setLineData({});
             }
           });
           
@@ -76,6 +83,7 @@ function LinesForm({authToken}) {
             console.log(response.data);
             setErrors([]);
             alert(response.data);
+            formRef.current.reset();
             setLineData({});
           })
           .catch((error) => {
@@ -83,6 +91,8 @@ function LinesForm({authToken}) {
             setErrors(error.response.data.errors);
             if(error.response.status===404){
                 alert(error.response.data);
+                formRef.current.reset();
+                setLineData({});
       }
           });
       }
@@ -110,6 +120,7 @@ function LinesForm({authToken}) {
             console.log(response.data);
             setErrors([]);
             alert(response.data);
+            formRef.current.reset();
             setLineData({});
           })
           .catch((error) => {
@@ -117,6 +128,8 @@ function LinesForm({authToken}) {
             setErrors(error.response.data.errors);
             if(error.response.status===404){
               alert(error.response.data);
+              formRef.current.reset();
+              setLineData({});
             }
           });
       }
@@ -128,7 +141,7 @@ function LinesForm({authToken}) {
     <div className='lines-header'>
       <h1 className='header-text'>Manage Lines</h1>
     </div>
-    <form className='lines-form'>
+    <form className='lines-form' ref={formRef}>
       <div className='form-group'>
         <label htmlFor='number'>Line Number</label>
         <input type='text' id='number' name='number' className='form-control' onInput={handleInput} />
