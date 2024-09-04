@@ -2,13 +2,14 @@ import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import OneUser from './OneUser';
+import useSearchSort from './useSearchSort';
 
 function Users({authToken}) {
 
     const [users, setUsers] = useState([]);
-    const [search, setSearch]=useState();
-    const [sortBy, setSortBy] = useState('name');
-    const [sortOrder, setSortOrder] = useState('asc');
+
+    
+    const {setSearch, setSortBy, setSortOrder, search, sortBy, sortOrder} = useSearchSort();
 
 
     useEffect(() => {

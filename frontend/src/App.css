@@ -572,6 +572,9 @@ body {
 .details-title {
   margin-top: 15px;
   text-align: center;
+  color: white;
+  font-style: italic;
+
 }
 
 .details-second-container {
