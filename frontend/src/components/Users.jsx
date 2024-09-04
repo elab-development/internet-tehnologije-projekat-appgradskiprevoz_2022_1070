@@ -6,18 +6,28 @@ import OneUser from './OneUser';
 function Users({authToken}) {
 
     const [users, setUsers] = useState([]);
+    const [search, setSearch]=useState();
+    const [sortBy, setSortBy] = useState('name');
+    const [sortOrder, setSortOrder] = useState('asc');
 
 
     useEffect(() => {
         const fetchUsers = async () => {
+
           let config = {
             method: 'get',
             maxBodyLength: Infinity,
             url: '/api/users',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': 'Bearer ' + authToken,
+            headers: { 
+              'Accept': 'application/json', 
+              'Content-Type': 'application/json', 
+              'Authorization': 'Bearer ' + authToken
             },
+            params: {
+              search,
+              sortBy,
+              sortOrder,
+          },
           };
     
           axios.request(config)
@@ -31,7 +41,7 @@ function Users({authToken}) {
         };
     
         fetchUsers();
-      }, []);
+      }, [search, sortBy, sortOrder]);
 
 
 
@@ -51,6 +61,17 @@ function Users({authToken}) {
 
   return (
     <div className='user-container'>
+      <div className='search-sort-controls'>
+        <input type='text'  className='search-input' placeholder='Search...' value={search} onChange={(e) => setSearch(e.target.value)} />
+        <select value={sortBy} className='sort-by-select' onChange={(e) => setSortBy(e.target.value)}>
+          <option value='name'>Name</option>
+          <option value='email'>Email</option>
+        </select>
+        <select value={sortOrder} className='sort-order-select'  onChange={(e) => setSortOrder(e.target.value)}>
+          <option value='asc'>Ascending</option>
+          <option value='desc'>Descending</option>
+        </select>
+      </div>      
     {users.map(user => (
       <OneUser user={user} authToken={authToken} key={user['id: ']} removeDeletedTicket={removeDeletedTicket} />
     ))}
