@@ -4,6 +4,7 @@ import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import Filters from './Filters';
 import LineShortcut from './LineShortcut';
+import Weather from './Weather'
 
 function Lines({authToken}) {
 
@@ -111,7 +112,12 @@ useEffect(() => {
       />
     </div>
     <div className='shortcut-container'>
-      <LineShortcut />
+      <div className='shortcut-main-container'>
+        <LineShortcut />
+      </div>
+      <div className='weather-container'>
+        <Weather />
+      </div>
     </div>
   </div>
   )
