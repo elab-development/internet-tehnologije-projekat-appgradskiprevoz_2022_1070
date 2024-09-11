@@ -7,7 +7,7 @@ import useSearchSort from './useSearchSort';
 function Users({authToken}) {
 
     const [users, setUsers] = useState([]);
-
+    
     
     const {setSearch, setSortBy, setSortOrder, search, sortBy, sortOrder} = useSearchSort();
 
