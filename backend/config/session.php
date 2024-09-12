@@ -158,6 +158,8 @@ return [
 
     'domain' => env('SESSION_DOMAIN'),
 
+    /* 'domain' => ('.localhost'), */
+
     /*
     |--------------------------------------------------------------------------
     | HTTPS Only Cookies

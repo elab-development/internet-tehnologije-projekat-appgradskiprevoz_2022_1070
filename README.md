@@ -9,16 +9,16 @@
 5. Pokrenuti novi terminal.
 
 6. Upisati sledeće komande:
-    cd backend
-    composer install
-    cp. .env.example .env
-    php artisan serve
-    php artisan migrate:fresh --seed
+    1) cd backend
+    2) composer install
+    3) cp. .env.example .env
+    4) php artisan serve
+    5) php artisan migrate:fresh --seed
 
 7. Pokrenuti novi terminal i upisati sledeće komande:
-    cd frontend
-    npm install
-    npm start
+    1) cd frontend
+    2) npm install
+    3) npm start
 
 8. Otvoriti početnu stranicu localhost:3000/lines
 
